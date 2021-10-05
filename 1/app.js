@@ -65,17 +65,15 @@
 // BST.preOrderPrint(BST.root);
 
 
+preoderRecursion(document.body,(node)=>{console.log(node.tagName)})
+//preoder(document.body,(node)=>{console.log(node.tagName)})
 
 
-
-preoder(document.body)
-
-
-function preoder(node){
+function preoder(node,fun){
     let pointer=node
 
     do{
-        console.log(pointer.tagName)
+        fun(pointer)
 
         if(pointer.firstElementChild!==null){
             pointer=pointer.firstElementChild
@@ -96,6 +94,22 @@ function preoder(node){
 
     }while (true)
 
+}
+
+
+function preoderRecursion(node,fun){
+
+    fun(node)
+
+    if(node.firstElementChild!==null){
+
+        let pointer=node.firstElementChild
+        do{
+            preoderRecursion(pointer,fun)
+            pointer=pointer.nextElementSibling
+        }
+        while(pointer!=null)
+    }
 }
 
 
